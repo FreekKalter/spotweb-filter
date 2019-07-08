@@ -17,9 +17,16 @@ function toggleActive() {
     }
   });
   console.log("filter: ", active ? "active" : "inactive");
+  if(active){
+      updateActiveTab();
+  }else{
+      browser.tabs.reload();
+  }
+
 }
 
-function updateActiveTab(tabs) {
+function updateActiveTab() {
+
   function updateTab(tabs) {
     if (tabs[0]) {
       currentTab = tabs[0];
