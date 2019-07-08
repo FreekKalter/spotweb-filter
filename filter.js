@@ -46,9 +46,9 @@ function cleanup(){
     }
 }
 
-cleanup();
 window.onscroll = function(){
     console.log('scroll');
     cleanup();
 };
-
+cleanup();
+console.log('content_script loaded');
