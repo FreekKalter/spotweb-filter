@@ -1,3 +1,5 @@
+var already_injected;
+
 function sharedStart(array){
     var A= array.concat().sort(), a1= A[0], a2= A[A.length-1], L= a1.length, i= 0;
     while(i<L && a1.charAt(i)=== a2.charAt(i)) i++;
@@ -46,9 +48,12 @@ function cleanup(){
     }
 }
 
-window.onscroll = function(){
-    console.log('scroll');
+if(!already_injected){
+    window.onscroll = function(){
+        console.log('scroll');
+        cleanup();
+    };
     cleanup();
-};
-cleanup();
-console.log('content_script loaded');
+    console.log('content_script loaded');
+    already_injected = true;
+}

@@ -27,11 +27,10 @@ function toggleActive() {
 
 function updateActiveTab() {
 
-  function updateTab(tabs) {
+function updateTab(tabs) {
     if (tabs[0]) {
       currentTab = tabs[0];
       if(currentTab.url.indexOf('nzbserver.com') > 0){
-          console.log(currentTab.url);
            if(active){
                inject();
            }
