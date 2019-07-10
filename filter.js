@@ -1,4 +1,5 @@
 var already_injected;
+var scroll_counter;
 
 function sharedStart(array){
     var A= array.concat().sort(), a1= A[0], a2= A[A.length-1], L= a1.length, i= 0;
@@ -49,9 +50,14 @@ function cleanup(){
 }
 
 if(!already_injected){
+    scroll_counter = 0;
     window.onscroll = function(){
-        console.log('scroll');
-        cleanup();
+        scroll_counter++;
+        if(scroll_counter == 10){
+            console.log('scroll');
+            cleanup();
+            scroll_counter = 0;
+        }
     };
     cleanup();
     console.log('content_script loaded');
