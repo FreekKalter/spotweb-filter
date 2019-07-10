@@ -19,7 +19,6 @@ function cleanup(){
             if(shared.length/a.text.length > 0.6){
                 found = true;
                 ass_array[comp].push(a);
-                // console.log(s_text, "\n", a.text.length, shared.length, shared.length/a.text.length);
             }
         }
         if(!found){
@@ -40,7 +39,7 @@ function cleanup(){
             if(found >= 0){
                 for(var i=0; i<ass_array[comp].length; i++){
                     if(i != found){
-                        console.log('removing: ', ass_array[comp][i].text);
+                        // console.log('removing: ', ass_array[comp][i].text);
                         table.removeChild(ass_array[comp][i].parentNode.parentNode);
                     }
                 }
@@ -54,7 +53,6 @@ if(!already_injected){
     window.onscroll = function(){
         scroll_counter++;
         if(scroll_counter == 10){
-            console.log('scroll');
             cleanup();
             scroll_counter = 0;
         }
